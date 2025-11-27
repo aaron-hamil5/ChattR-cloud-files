@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: app-development-team
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: web-development-team
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: store-development-team
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: canary-test-team
+---
