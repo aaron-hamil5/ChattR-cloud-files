@@ -1,0 +1,43 @@
+apiVerson: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: canary-test-team
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        env:
+        - name: MONO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: chattr-secret
+              key: DB_USER
+        - name: MONO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: chattr-secret
+              key: DB_PASS
+        ports:
+        - containerPort: 27017
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+  namespace: canary-test-team
+spec:
+  selector:
+    app: mongo
+  ports:
+    - port: 27017
+      targetPort: 27017
