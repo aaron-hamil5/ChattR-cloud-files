@@ -51,5 +51,5 @@ spec:
               key: DB_PASS
         tolerations:
         - key: "node-roles.kubernetes.io/control-plane"
-          operator: "Exists"
+          operator: Exists
           effect: "NoSchedule"
