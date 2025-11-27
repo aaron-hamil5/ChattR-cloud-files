@@ -32,7 +32,6 @@ spec:
         tolerations:
           - key: "node-roles.kubernetes.io/control-plane"
             operator: Exists
-            effect: "NoSchedule"
 ---
 apiVersion: v1
 kind: Service
