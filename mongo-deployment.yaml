@@ -17,12 +17,12 @@ spec:
       - name: mongo
         image: mongo
         env:
-        - name: MONO_INITDB_ROOT_USERNAME
+        - name: MONGO_INITDB_ROOT_USERNAME 
           valueFrom:
             secretKeyRef:
               name: chattr-secret
               key: DB_USER
-        - name: MONO_INITDB_ROOT_PASSWORD
+        - name: MONGO_INITDB_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               name: chattr-secret

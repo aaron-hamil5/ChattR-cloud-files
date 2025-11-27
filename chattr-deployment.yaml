@@ -19,6 +19,7 @@ spec:
         ports:
         - containerPort: 5000
         env:
+        # ConfigMap References (Correct)
         - name: APP_TITLE
           valueFrom:
             configMapKeyRef:
@@ -41,12 +42,11 @@ spec:
               key: AUTH_SOURCE
         - name: DB_USER
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef: 
               name: chattr-secret
               key: DB_USER
         - name: DB_PASS
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: chattr-secret
               key: DB_PASS
-  
