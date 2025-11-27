@@ -49,6 +49,6 @@ spec:
             secretKeyRef:
               name: chattr-secret
               key: DB_PASS
-        tolerations:
-        - key: "node-roles.kubernetes.io/control-plane"
-          operator: Exists
+      tolerations:
+      - key: "node-roles.kubernetes.io/control-plane"
+        operator: Exists
