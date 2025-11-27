@@ -21,32 +21,32 @@ spec:
         env:
         - name: APP_TITLE
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: chattr-config
               key: APP_TITLE
         - name: DB_HOST
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: chattr-config
               key: DB_HOST
         - name: DB_NAME
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: chattr-config
               key: DB_NAME
         - name: AUTH_SOURCE
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: chattr-config
               key: AUTH_SOURCE
         - name: DB_USER
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: chattr-secret
               key: DB_USER
         - name: DB_PASS
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: chattr-secret
               key: DB_PASS
   
