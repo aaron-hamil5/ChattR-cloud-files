@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chattr
+  namespace: canary-test-team
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: chattr
+  template:
+    metadata:
+      labels:
+        app: chattr
+    spec:
+      containers:
+      - name: chattr
+        image: aaronhamil5/chattr:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: APP_TITLE
+          valueFrom:
+            ConfigMapKeyRef:
+              name: chattr-config
+              key: APP_TITLE
+        - name: DB_HOST
+          valueFrom:
+            ConfigMapKeyRef:
+              name: chattr-config
+              key: DB_HOST
+        - name: DB_NAME
+          valueFrom:
+            ConfigMapKeyRef:
+              name: chattr-config
+              key: DB_NAME
+        - name: AUTH_SOURCE
+          valueFrom:
+            ConfigMapKeyRef:
+              name: chattr-config
+              key: AUTH_SOURCE
+        - name: DB_USER
+          valueFrom:
+            ConfigMapKeyRef:
+              name: chattr-secret
+              key: DB_USER
+        - name: DB_PASS
+          valueFrom:
+            ConfigMapKeyRef:
+              name: chattr-secret
+              key: DB_PASS
+  
