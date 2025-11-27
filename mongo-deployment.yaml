@@ -29,6 +29,10 @@ spec:
               key: DB_PASS
         ports:
         - containerPort: 27017
+    tolerations:
+      - key: "node-roles.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
 ---
 apiVersion: v1
 kind: Service

@@ -19,7 +19,6 @@ spec:
         ports:
         - containerPort: 5000
         env:
-        # ConfigMap References (Correct)
         - name: APP_TITLE
           valueFrom:
             configMapKeyRef:
@@ -50,3 +49,7 @@ spec:
             secretKeyRef:
               name: chattr-secret
               key: DB_PASS
+      tolerations:
+      - key: "node-roles.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
