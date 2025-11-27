@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chattr-config
+  namespace: canary-test-team
+data:
+  APP_TITLE: "Canary Chat"
+  DB_HOST: "mongo-service"
+  DB_NAME: "canary-chat"
+  AUTH_SOURCE: "admin"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chattr-config
+  namespace: app-development-team
+data:
+  APP_TITLE: "Shifly Development Chat"
+  DB_HOST: "mongo-service"
+  DB_NAME: "app-dev-chat"
+  AUTH_SOURCE: "admin"
